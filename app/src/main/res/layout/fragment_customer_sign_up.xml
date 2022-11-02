@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CustomerSignUpFragment">
+
+
+    <EditText
+        android:id="@+id/customerSignUpNameEditText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="27dp"
+        android:ems="10"
+        android:hint="İsim giriniz"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/customerSignUpSurnameEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signUpTextView" />
+
+    <EditText
+        android:id="@+id/customerSignUpSurnameEditText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="24dp"
+        android:ems="10"
+        android:hint="Soyisim giriniz"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/customerSignUpPhoneNumberEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/customerSignUpNameEditText" />
+
+    <EditText
+        android:id="@+id/customerSignUpPhoneNumberEditText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="37dp"
+        android:ems="10"
+        android:hint="Telefon numaranızı giriniz"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/addIdentity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/customerSignUpSurnameEditText" />
+
+    <TextView
+        android:id="@+id/signUpTextView"
+        android:layout_width="347dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="42dp"
+        android:text="Müşteri Kayıt"
+        android:textAlignment="center"
+        android:textColor="#006064"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/customerSignUpNameEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/addIdentity"
+        android:layout_width="220dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="10dp"
+        android:onClick="addIdentity"
+        android:src="@drawable/tckimlikfoto"
+        app:layout_constraintBottom_toTopOf="@+id/addDrivingLicense"
+        app:layout_constraintEnd_toEndOf="@+id/addDrivingLicense"
+        app:layout_constraintStart_toStartOf="@+id/addDrivingLicense"
+        app:layout_constraintTop_toBottomOf="@+id/customerSignUpPhoneNumberEditText" />
+
+    <ImageView
+        android:id="@+id/addDrivingLicense"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="33dp"
+        android:onClick="addDrivingLicense"
+        android:src="@drawable/ehliyetfoto"
+        app:layout_constraintBottom_toTopOf="@+id/customerCompleteSignUpButton"
+        app:layout_constraintEnd_toEndOf="@+id/customerCompleteSignUpButton"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addIdentity" />
+
+    <Button
+        android:id="@+id/customerCompleteSignUpButton"
+        android:layout_width="181dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="58dp"
+        android:backgroundTint="#60006064"
+        android:onClick="museriKayit"
+        android:text="Kaydol"
+        android:textAlignment="center"
+        android:textColor="#C1000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addDrivingLicense" />
+</androidx.constraintlayout.widget.ConstraintLayout>
