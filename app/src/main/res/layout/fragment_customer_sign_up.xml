@@ -13,14 +13,13 @@
         android:layout_height="0dp"
         android:layout_marginStart="38dp"
         android:layout_marginEnd="38dp"
-        android:layout_marginBottom="27dp"
+        android:layout_marginBottom="25dp"
         android:ems="10"
         android:hint="İsim giriniz"
         android:inputType="textPersonName"
         android:text=""
         app:layout_constraintBottom_toTopOf="@+id/customerSignUpSurnameEditText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signUpTextView" />
 
@@ -30,7 +29,7 @@
         android:layout_height="0dp"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="26dp"
         android:ems="10"
         android:hint="Soyisim giriniz"
         android:inputType="textPersonName"
@@ -44,26 +43,26 @@
         android:id="@+id/customerSignUpPhoneNumberEditText"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="39dp"
-        android:layout_marginEnd="39dp"
-        android:layout_marginBottom="37dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="33dp"
         android:ems="10"
         android:hint="Telefon numaranızı giriniz"
         android:inputType="textPersonName"
         android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/addIdentityButton"
+        app:layout_constraintBottom_toTopOf="@+id/addDrivingLicenseButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/customerSignUpSurnameEditText" />
 
     <TextView
         android:id="@+id/signUpTextView"
-        android:layout_width="347dp"
-        android:layout_height="40dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="26dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="42dp"
+        android:layout_marginBottom="41dp"
         android:text="Müşteri Kayıt"
         android:textAlignment="center"
         android:textColor="#006064"
@@ -71,44 +70,14 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/customerSignUpNameEditText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/addIdentityButton"
-        android:layout_width="220dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="10dp"
-        android:onClick="addIdentity"
-        android:src="@drawable/tckimlikfoto"
-        app:layout_constraintBottom_toTopOf="@+id/addDrivingLicenseButton"
-        app:layout_constraintEnd_toEndOf="@+id/addDrivingLicenseButton"
-        app:layout_constraintStart_toStartOf="@+id/addDrivingLicenseButton"
-        app:layout_constraintTop_toBottomOf="@+id/customerSignUpPhoneNumberEditText" />
-
-    <ImageView
-        android:id="@+id/addDrivingLicenseButton"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="33dp"
-        android:onClick="addDrivingLicense"
-        android:src="@drawable/ehliyetfoto"
-        app:layout_constraintBottom_toTopOf="@+id/customerCompleteSignUpButton"
-        app:layout_constraintEnd_toEndOf="@+id/customerCompleteSignUpButton"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addIdentityButton" />
 
     <Button
         android:id="@+id/customerCompleteSignUpButton"
         android:layout_width="181dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="58dp"
+        android:layout_marginBottom="59dp"
         android:backgroundTint="#60006064"
         android:onClick="museriKayit"
         android:text="Kaydol"
@@ -119,5 +88,30 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addIdentityButton" />
+
+    <ImageView
+        android:id="@+id/addDrivingLicenseButton"
+        android:layout_width="195dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginBottom="22dp"
+        android:onClick="addDrivingLicense"
+        android:src="@drawable/ehliyetimg"
+        app:layout_constraintBottom_toTopOf="@+id/addIdentityButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/customerSignUpPhoneNumberEditText" />
+
+    <ImageView
+        android:id="@+id/addIdentityButton"
+        android:layout_width="195dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="23dp"
+        android:onClick="addIdentity"
+        android:src="@drawable/tckimlikimg"
+        app:layout_constraintBottom_toTopOf="@+id/customerCompleteSignUpButton"
+        app:layout_constraintEnd_toEndOf="@+id/addDrivingLicenseButton"
+        app:layout_constraintStart_toStartOf="@+id/addDrivingLicenseButton"
         app:layout_constraintTop_toBottomOf="@+id/addDrivingLicenseButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

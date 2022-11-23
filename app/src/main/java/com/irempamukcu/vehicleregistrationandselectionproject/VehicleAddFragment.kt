@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.Intent.ACTION_PICK
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.ImageDecoder
 import android.net.Uri
 import android.os.Build
@@ -16,9 +17,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.navigation.Navigation
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_vehicle_add.*
+import kotlinx.android.synthetic.main.fragment_vehicle_view_for_admin.*
+import kotlinx.android.synthetic.main.fragment_vehicle_view_for_customer.*
 import java.io.ByteArrayOutputStream
+import java.sql.Blob
+
 
 class VehicleAddFragment : Fragment() {
 
@@ -35,12 +43,19 @@ class VehicleAddFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
+
         return inflater.inflate(R.layout.fragment_vehicle_add, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         vehicleSaveButton.setOnClickListener {
             saveVehicle(it)
+            if(isVehicleOk(view)){
+
+                val action9 = VehicleAddFragmentDirections.actionVehicleAddFragmentToAdminVehicleDeleteAddFragment()
+                Navigation.findNavController(it).navigate(action9)
+            }
 
         }
 
@@ -48,9 +63,51 @@ class VehicleAddFragment : Fragment() {
             saveVehiclePicture(it)
         }
 
-
         super.onViewCreated(view, savedInstanceState)
     }
+
+
+
+    fun isVehicleModel(view : View) : Boolean{
+        val vehicleModel = addVehicleModelEditText.text.toString()
+        return vehicleModel.length < 30
+    }
+
+    fun isVehicleHealth(view : View) : Boolean{
+        val vehicleHealth = addVehicleHealthEditText.text.toString()
+        return vehicleHealth.equals("iyi",ignoreCase = true) || vehicleHealth.equals("kötü",ignoreCase = true)
+    }
+
+    fun isgearType(view : View) : Boolean{
+        val gearType = addVehicleGearTypeEditText.text.toString()
+        return gearType.equals("manuel",ignoreCase = true) || gearType.equals("otomatik",ignoreCase = true)
+    }
+
+    fun isLicensePlate(view : View) : Boolean{
+        val licensePlate = addVehicleLicensePlateEditText.text.toString()
+        return licensePlate.length <= 11
+    }
+
+    fun isVehiclePower(view : View) : Boolean{
+        val vehiclePower = addVehiclePowerEditText.text.toString()
+        return vehiclePower.length <= 4
+    }
+
+    fun isHowManyPerson(view : View) : Boolean{
+        val howManyPerson = addVehicleHowManyPersonEditText.text.toString()
+        return howManyPerson.length <= 2
+    }
+
+    fun isDailyPrice(view : View) : Boolean{
+        val dailyPrice = addVehicleDailyPriceEditText.text.toString()
+        return dailyPrice.length <= 8
+    }
+
+    fun isVehicleOk(view : View) : Boolean{
+
+        return isVehicleModel(view) && isLicensePlate(view) && isVehicleHealth(view) && isVehiclePower(view) && isgearType(view) && isHowManyPerson(view) && isDailyPrice(view) && vehicleBitmap != null
+    }
+
     fun saveVehicle(view : View){
         val vehicleModel = addVehicleModelEditText.text.toString()
         val licensePlate = addVehicleLicensePlateEditText.text.toString()
@@ -61,50 +118,50 @@ class VehicleAddFragment : Fragment() {
         val dailyPrice = addVehicleDailyPriceEditText.text.toString()
 
 
-        if(vehicleModel.length > 30){
+
+        if(!isVehicleModel(view)){
             context?.let {
                 Toast.makeText(it,"Araç modeli 30 karakterden fazla olamaz",Toast.LENGTH_LONG).show()
         }
     }
 
-        if(licensePlate.length > 11){
+        if(!isLicensePlate(view)){
             context?.let {
                 Toast.makeText(it,"Araç modeli 11 karakterden fazla olamaz",Toast.LENGTH_LONG).show()
             }
         }
 
-        if(!(vehicleHealth.equals("iyi")) || !(vehicleHealth.equals("kötü"))){
+        if(!isVehicleHealth(view)){
             context?.let {
                 Toast.makeText(it,"Araç sağlığı 'iyi' ya da 'kötü' dışında bir değer olamaz",Toast.LENGTH_LONG).show()
             }
         }
 
-        if(vehiclePower.length > 4){
+        if(!isVehiclePower(view)){
             context?.let {
                 Toast.makeText(it,"Araç beygiri 4 rakamdan fazla olamaz",Toast.LENGTH_LONG).show()
             }
         }
 
-        if(!(gearType.equals("manuel")) || !(gearType.equals("otomatik"))){
+        if(!isgearType(view)){
             context?.let {
                 Toast.makeText(it,"Vites tipi 'manuel' ya da 'otomatik' dışında bir değer olamaz",Toast.LENGTH_LONG).show()
             }
         }
 
-        if(howManyPerson.length > 2){
+        if(!isHowManyPerson(view)){
             context?.let {
                 Toast.makeText(it,"Kişi sayısı 2 rakamdan fazla olamaz",Toast.LENGTH_LONG).show()
             }
         }
 
-        if(dailyPrice.length > 8){
+        if(!isDailyPrice(view)){
             context?.let {
                 Toast.makeText(it,"Günlük ücret 8 rakamdan fazla olamaz",Toast.LENGTH_LONG).show()
             }
         }
 
-        if(vehicleModel.length <= 30 && licensePlate.length <= 11 && ((vehicleHealth.equals("iyi")) || (vehicleHealth.equals("kötü"))) && vehiclePower.length <= 4 && ((gearType.equals("manuel")) || (gearType.equals("otomatik"))) && howManyPerson.length <= 2 && dailyPrice.length <= 8 && vehicleBitmap != null){
-
+        if(isVehicleOk(view)){
             val outputStream = ByteArrayOutputStream()
             vehicleBitmap!!.compress(Bitmap.CompressFormat.PNG,50,outputStream)
             val vehicleByte = outputStream.toByteArray()
@@ -125,13 +182,12 @@ class VehicleAddFragment : Fragment() {
                     statement.bindBlob(8,vehicleByte)
                     statement.execute()
 
+
                 }
             }catch (e : Exception){
                 e.printStackTrace()
             }
-
         }
-
     }
 
     fun saveVehiclePicture(view : View){
@@ -181,4 +237,6 @@ class VehicleAddFragment : Fragment() {
         }
         super.onActivityResult(requestCode, resultCode, data)
     }
+
+
 }
