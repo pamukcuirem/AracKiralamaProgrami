@@ -27,12 +27,13 @@
 
     <EditText
         android:id="@+id/paymentCardNumberEditText"
-        android:layout_width="320dp"
-        android:layout_height="41dp"
+        android:layout_width="333dp"
+        android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Kart Numarası"
         android:inputType="number"
+        android:onClick="savePayment"
         app:layout_constraintBottom_toTopOf="@+id/paymentCardLastDateYearEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.34"
@@ -42,11 +43,12 @@
 
     <EditText
         android:id="@+id/paymentCardLastDateMonthEditText"
-        android:layout_width="83dp"
-        android:layout_height="47dp"
+        android:layout_width="98dp"
+        android:layout_height="54dp"
         android:layout_marginStart="28dp"
         android:layout_marginBottom="80dp"
         android:ems="10"
+        android:hint="Ay"
         android:inputType="numberSigned"
         app:layout_constraintBottom_toTopOf="@+id/paymentCheckBox"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,9 +57,10 @@
 
     <EditText
         android:id="@+id/paymentCardLastDateYearEditText"
-        android:layout_width="83dp"
-        android:layout_height="0dp"
+        android:layout_width="99dp"
+        android:layout_height="52dp"
         android:ems="10"
+        android:hint="Yıl"
         android:inputType="numberSigned"
         app:layout_constraintBottom_toBottomOf="@+id/paymentCardCVVEditText"
         app:layout_constraintEnd_toStartOf="@+id/paymentCardCVVEditText"
@@ -66,8 +69,8 @@
 
     <EditText
         android:id="@+id/paymentCardCVVEditText"
-        android:layout_width="85dp"
-        android:layout_height="0dp"
+        android:layout_width="94dp"
+        android:layout_height="45dp"
         android:layout_marginEnd="60dp"
         android:layout_marginBottom="380dp"
         android:ems="10"

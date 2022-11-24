@@ -1,5 +1,6 @@
 package com.irempamukcu.vehicleregistrationandselectionproject
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -28,10 +29,10 @@ class PaymentFragment : Fragment() {
         paymentCompleteButton.setOnClickListener {
             savePayment(it)
 
-          if(isPaymetnOk(view)){
-              val action10 = PaymentFragmentDirections.actionPaymentFragmentToAdminOrCustomerEntranceFragment()
-              Navigation.findNavController(it).navigate(action10)
-          }
+            if(isPaymetnOk(view)){
+                val action13 = PaymentFragmentDirections.actionPaymentFragmentToAdminOrCustomerEntranceFragment()
+                Navigation.findNavController(it).navigate(action13)
+            }
 
         }
         super.onViewCreated(view, savedInstanceState)
@@ -43,18 +44,18 @@ class PaymentFragment : Fragment() {
     }
 
     fun isLateDateMonth(view : View) : Boolean{
-        val lastDateMonth = paymentCardLastDateMonthEditText.text.toString().toInt()
-        return lastDateMonth != 0
+        val lastDateMonth = paymentCardLastDateMonthEditText.text.toString()
+        return lastDateMonth.length != 0
     }
 
     fun isLateDateYear(view : View) : Boolean{
-        val lastDateYear = paymentCardLastDateYearEditText.text.toString().toInt()
-        return lastDateYear != 0
+        val lastDateYear = paymentCardLastDateYearEditText.text.toString()
+        return lastDateYear.length != 0
     }
 
     fun isCvv(view : View) : Boolean{
-        val cvv = paymentCardCVVEditText.text.toString().toInt()
-        return (cvv in 100..999)
+        val cvv = paymentCardCVVEditText.text.toString()
+        return cvv.length == 3
     }
 
     fun paymentBoxCheck(view: View) : Boolean{

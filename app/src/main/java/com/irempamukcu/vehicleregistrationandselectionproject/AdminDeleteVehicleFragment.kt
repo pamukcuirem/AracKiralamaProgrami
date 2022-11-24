@@ -51,8 +51,6 @@ class AdminDeleteVehicleFragment : Fragment() {
             e.printStackTrace()
         }
 
-
     }
-
 
 }
