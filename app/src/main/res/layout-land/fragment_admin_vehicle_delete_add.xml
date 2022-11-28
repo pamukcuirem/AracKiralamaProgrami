@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminVehicleDeleteAddFragment">
+
+
+    <Button
+        android:id="@+id/adminDeleteButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="91dp"
+        android:layout_marginEnd="91dp"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="#60006064"
+        android:onClick="goToVehicleDelete"
+        android:text="Araç Sil"
+        android:textAlignment="center"
+        android:textColor="#C1000000"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adminAddButton" />
+
+    <Button
+        android:id="@+id/adminAddButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="23dp"
+        android:backgroundTint="#60006064"
+        android:onClick="goToVehicleAdd"
+        android:text="Araç Ekle"
+        android:textAlignment="center"
+        android:textColor="#C1000000"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/adminDeleteButton"
+        app:layout_constraintEnd_toEndOf="@+id/adminViewButton"
+        app:layout_constraintStart_toStartOf="@+id/adminViewButton"
+        app:layout_constraintTop_toBottomOf="@+id/adminViewButton" />
+
+    <Button
+        android:id="@+id/adminViewButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="90dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#60006064"
+        android:onClick="goToVehicleAdd"
+        android:text="Araçları Gör"
+        android:textAlignment="center"
+        android:textColor="#C1000000"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/adminAddButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

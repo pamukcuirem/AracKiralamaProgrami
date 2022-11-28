@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RentDateFragment">
+
+
+    <CalendarView
+        android:id="@+id/calendarView2"
+        android:layout_width="260dp"
+        android:layout_height="234dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.742" />
+
+    <EditText
+        android:id="@+id/rentStartDate"
+        android:layout_width="140dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:hint="İlk Gün: 01/06"
+        android:inputType="date"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.598"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rentDateTextView" />
+
+    <EditText
+        android:id="@+id/editTextDate2"
+        android:layout_width="140dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:hint="Son Gün: 10/06"
+        android:inputType="date"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.564"
+        app:layout_constraintStart_toEndOf="@+id/rentStartDate"
+        app:layout_constraintTop_toBottomOf="@+id/rentDateTextView" />
+
+    <TextView
+        android:id="@+id/rentDateTextView"
+        android:layout_width="626dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:text="Kira Tarih Aralığı"
+        android:textAlignment="center"
+        android:textColor="#006064"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.403"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="340dp"
+        android:layout_height="35dp"
+        android:text="Ofis"
+        android:textAlignment="center"
+        android:textColor="#006064"
+        android:textSize="26sp"
+        app:layout_constraintBottom_toTopOf="@+id/rentOffice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.66"
+        app:layout_constraintStart_toEndOf="@+id/calendarView2"
+        app:layout_constraintTop_toBottomOf="@+id/rentDateTextView"
+        app:layout_constraintVertical_bias="0.851" />
+
+    <EditText
+        android:id="@+id/rentOffice"
+        android:layout_width="340dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:hint="Ofis İsmi Giriniz"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toEndOf="@+id/calendarView2"
+        app:layout_constraintTop_toBottomOf="@+id/rentDateTextView"
+        app:layout_constraintVertical_bias="0.552" />
+
+    <Button
+        android:id="@+id/rentButton"
+        android:layout_width="340dp"
+        android:layout_height="45dp"
+        android:backgroundTint="#60006064"
+        android:text="Devam"
+        android:textColor="#C1000000"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rentOffice"
+        app:layout_constraintVertical_bias="0.585" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

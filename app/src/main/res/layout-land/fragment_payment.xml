@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PaymentFragment">
+
+
+    <TextView
+        android:id="@+id/PaymentTitleTextView"
+        android:layout_width="555dp"
+        android:layout_height="43dp"
+        android:text="Ödeme Bilgileri"
+        android:textAlignment="center"
+        android:textColor="#006064"
+        android:textSize="29sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/paymentCardNumberEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.568" />
+
+    <EditText
+        android:id="@+id/paymentCardNumberEditText"
+        android:layout_width="552dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:hint="Kart Numarası"
+        android:inputType="number"
+        android:onClick="savePayment"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.359" />
+
+    <EditText
+        android:id="@+id/paymentCardLastDateMonthEditText"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:hint="Ay"
+        android:inputType="numberSigned"
+        app:layout_constraintBottom_toTopOf="@+id/paymentCheckBox"
+        app:layout_constraintEnd_toStartOf="@+id/paymentCardLastDateYearEditText"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/paymentCardNumberEditText" />
+
+    <EditText
+        android:id="@+id/paymentCardLastDateYearEditText"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="164dp"
+        android:ems="10"
+        android:hint="Yıl"
+        android:inputType="numberSigned"
+        app:layout_constraintBottom_toTopOf="@+id/paymentCheckBox"
+        app:layout_constraintEnd_toStartOf="@+id/paymentCardCVVEditText"
+        app:layout_constraintTop_toBottomOf="@+id/paymentCardNumberEditText" />
+
+    <EditText
+        android:id="@+id/paymentCardCVVEditText"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:hint="CVV"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.539"
+        app:layout_constraintStart_toEndOf="@+id/paymentCheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/paymentCardNumberEditText"
+        app:layout_constraintVertical_bias="0.151" />
+
+    <CheckBox
+        android:id="@+id/paymentCheckBox"
+        android:layout_width="332dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="96dp"
+        android:text="Ön Koşulları Kabul Ediyorum"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.176"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/paymentCardNumberEditText"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/paymentCompleteButton"
+        android:layout_width="178dp"
+        android:layout_height="57dp"
+        android:backgroundTint="#60006064"
+        android:onClick="savePayment"
+        android:text="Öde ve Bitir"
+        android:textAlignment="center"
+        android:textColor="#C1000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/paymentCheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/paymentCardCVVEditText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

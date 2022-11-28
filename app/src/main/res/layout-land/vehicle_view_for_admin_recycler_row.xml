@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="20dp"
     android:layout_marginBottom="20dp"
+    android:layout_marginTop="20dp"
     android:orientation="vertical">
 
 
     <ImageView
         android:id="@+id/vehicleImageAdminView"
-        android:layout_width="250dp"
+        android:layout_width="235dp"
         android:layout_height="150dp"
-        android:layout_marginBottom="20dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/vehicleInformationForAdmin"
-        app:layout_constraintEnd_toStartOf="@+id/avaliableVehicleTextView"
-        app:layout_constraintHorizontal_bias="1.0"
+        android:layout_marginRight="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.036"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
@@ -26,28 +26,29 @@
 
     <TextView
         android:id="@+id/avaliableVehicleTextView"
-        android:layout_width="99dp"
-        android:layout_height="36dp"
+        android:layout_width="150dp"
+        android:layout_height="29dp"
         android:text="Müsait"
+        android:layout_marginLeft="29dp"
         android:textAlignment="textStart"
-        android:textSize="22sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/vehicleInformationForAdmin"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.798"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.485" />
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintStart_toEndOf="@+id/vehicleImageAdminView"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/vehicleInformationForAdmin"
-        android:layout_width="379dp"
-        android:layout_height="wrap_content"
+        android:layout_width="381dp"
+        android:layout_height="93dp"
         android:text=""
         android:textAlignment="textStart"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.627"
+        app:layout_constraintStart_toEndOf="@+id/vehicleImageAdminView"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

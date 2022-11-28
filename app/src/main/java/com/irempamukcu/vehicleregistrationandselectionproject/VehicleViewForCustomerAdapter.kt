@@ -21,7 +21,7 @@ class VehicleViewForCustomerAdapter(val vehicleIdList : ArrayList<Int>, val lice
     }
 
     override fun onBindViewHolder(holder: VehicleViewForCustomerVH, position: Int) {
-        val information = "Model: " + vehicleModelList[position] + "\nÖzellikler: " + gearTypeList[position] + " " + howManyPersonList[position] + " " + vehiclePowerList[position] + "\nGünlük Fiyat: " + dailyPriceList[position]
+        val information = "Model: " + vehicleModelList[position] + "\nÖzellikler: " + gearTypeList[position] + "\n" + howManyPersonList[position] + " kişilik " + vehiclePowerList[position] + " HP " + "\nGünlük Fiyat: " + dailyPriceList[position]
         holder.itemView.vehicleInformationForCustomer.text = information
 
         holder.itemView.vehicleImageCustomerView.setImageBitmap(vehicleBitmapList[position])
