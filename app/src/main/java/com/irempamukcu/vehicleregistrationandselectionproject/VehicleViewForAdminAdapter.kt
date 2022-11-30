@@ -12,12 +12,14 @@ class VehicleViewForAdminAdapter(val vehicleIdList : ArrayList<Int>, val vehicle
 
     }
 
+    //binds the adapter and recyclerview
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VehicleViewForAdminVH {
         val inflater = LayoutInflater.from(parent.context)
         val itemView = inflater.inflate(R.layout.vehicle_view_for_admin_recycler_row,parent,false)
         return VehicleViewForAdminVH(itemView)
     }
 
+    //organizes what is going to be in the rows
     override fun onBindViewHolder(holder: VehicleViewForAdminVH, position: Int) {
         val information = "Model: " + vehicleModelList[position] + "\nPlaka: " + licensePlateList[position] + "\nAraç Sağlığı: " + vehicleHealthList[position]
         holder.itemView.vehicleInformationForAdmin.text = information
@@ -25,6 +27,7 @@ class VehicleViewForAdminAdapter(val vehicleIdList : ArrayList<Int>, val vehicle
         holder.itemView.vehicleImageAdminView.setImageBitmap(vehicleBitmapList[position])
     }
 
+    //takes the number of rows for creating them
     override fun getItemCount(): Int {
        return vehicleModelList.size
     }

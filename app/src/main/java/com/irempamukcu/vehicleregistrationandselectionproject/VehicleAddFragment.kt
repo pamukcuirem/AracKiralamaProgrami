@@ -49,8 +49,12 @@ class VehicleAddFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        //runs saveVehicle function and checks if condition when vehicleSaveButton is pressed
         vehicleSaveButton.setOnClickListener {
             saveVehicle(it)
+
+            //moves to AdminVehicleDeleteAddFragment when isVehicleOk function is 'True'
             if(isVehicleOk(view)){
 
                 val action9 = VehicleAddFragmentDirections.actionVehicleAddFragmentToAdminVehicleDeleteAddFragment()
@@ -59,6 +63,7 @@ class VehicleAddFragment : Fragment() {
 
         }
 
+        //runs saveVehiclePicture function when addVehicleImage is pressed
         addVehicleImage.setOnClickListener {
             saveVehiclePicture(it)
         }
@@ -66,48 +71,55 @@ class VehicleAddFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
     }
 
-
-
+    //checks the vehicleModel length is less than 30
     fun isVehicleModel(view : View) : Boolean{
         val vehicleModel = addVehicleModelEditText.text.toString()
         return vehicleModel.length < 30
     }
 
+    //checks the vehicleHealth is equals 'iyi' or 'kötü'
     fun isVehicleHealth(view : View) : Boolean{
         val vehicleHealth = addVehicleHealthEditText.text.toString()
         return vehicleHealth.equals("iyi",ignoreCase = true) || vehicleHealth.equals("kötü",ignoreCase = true)
     }
 
+    //checks the gearType is equals 'manuel' or 'otomatik'
     fun isgearType(view : View) : Boolean{
         val gearType = addVehicleGearTypeEditText.text.toString()
         return gearType.equals("manuel",ignoreCase = true) || gearType.equals("otomatik",ignoreCase = true)
     }
 
+    //checks the licensePlate length is equals or less than 11
     fun isLicensePlate(view : View) : Boolean{
         val licensePlate = addVehicleLicensePlateEditText.text.toString()
         return licensePlate.length <= 11
     }
 
+    //checks the vehiclePower length is equals or less than 4
     fun isVehiclePower(view : View) : Boolean{
         val vehiclePower = addVehiclePowerEditText.text.toString()
         return vehiclePower.length <= 4
     }
 
+    //checks the howManyPerson length is equals or less than 2
     fun isHowManyPerson(view : View) : Boolean{
         val howManyPerson = addVehicleHowManyPersonEditText.text.toString()
         return howManyPerson.length <= 2
     }
 
+    //checks the dailyPrice length is equals or less than 8
     fun isDailyPrice(view : View) : Boolean{
         val dailyPrice = addVehicleDailyPriceEditText.text.toString()
         return dailyPrice.length <= 8
     }
 
+    //checks all vehicle conditions
     fun isVehicleOk(view : View) : Boolean{
 
         return isVehicleModel(view) && isLicensePlate(view) && isVehicleHealth(view) && isVehiclePower(view) && isgearType(view) && isHowManyPerson(view) && isDailyPrice(view) && vehicleBitmap != null
     }
 
+    //saves vehicle information to the 'Araclar' database
     fun saveVehicle(view : View){
         val vehicleModel = addVehicleModelEditText.text.toString()
         val licensePlate = addVehicleLicensePlateEditText.text.toString()
@@ -117,50 +129,56 @@ class VehicleAddFragment : Fragment() {
         val howManyPerson = addVehicleHowManyPersonEditText.text.toString()
         val dailyPrice = addVehicleDailyPriceEditText.text.toString()
 
-
-
+        //sends a warning message when isVehicleModel function is 'False'
         if(!isVehicleModel(view)){
             context?.let {
                 Toast.makeText(it,"Araç modeli 30 karakterden fazla olamaz",Toast.LENGTH_LONG).show()
         }
     }
 
+        //sends a warning message when isLicensePlate function is 'False'
         if(!isLicensePlate(view)){
             context?.let {
                 Toast.makeText(it,"Araç modeli 11 karakterden fazla olamaz",Toast.LENGTH_LONG).show()
             }
         }
 
+        //sends a warning message when isVehicleHealth function is 'False'
         if(!isVehicleHealth(view)){
             context?.let {
                 Toast.makeText(it,"Araç sağlığı 'iyi' ya da 'kötü' dışında bir değer olamaz",Toast.LENGTH_LONG).show()
             }
         }
 
+        //sends a warning message when isVehiclePower function is 'False'
         if(!isVehiclePower(view)){
             context?.let {
                 Toast.makeText(it,"Araç beygiri 4 rakamdan fazla olamaz",Toast.LENGTH_LONG).show()
             }
         }
 
+        //sends a warning message when isgearType function is 'False'
         if(!isgearType(view)){
             context?.let {
                 Toast.makeText(it,"Vites tipi 'manuel' ya da 'otomatik' dışında bir değer olamaz",Toast.LENGTH_LONG).show()
             }
         }
 
+        //sends a warning message when isHowManyPerson function is 'False'
         if(!isHowManyPerson(view)){
             context?.let {
                 Toast.makeText(it,"Kişi sayısı 2 rakamdan fazla olamaz",Toast.LENGTH_LONG).show()
             }
         }
 
+        //sends a warning message when isDailyPrice function is 'False'
         if(!isDailyPrice(view)){
             context?.let {
                 Toast.makeText(it,"Günlük ücret 8 rakamdan fazla olamaz",Toast.LENGTH_LONG).show()
             }
         }
 
+        //saves vehicle information to the 'Araclar' database when isVehicleOk function is 'True'
         if(isVehicleOk(view)){
             val outputStream = ByteArrayOutputStream()
             vehicleBitmap!!.compress(Bitmap.CompressFormat.PNG,50,outputStream)
@@ -190,6 +208,7 @@ class VehicleAddFragment : Fragment() {
         }
     }
 
+    //takes vehicle image
     fun saveVehiclePicture(view : View){
         activity?.let{
             if(ContextCompat.checkSelfPermission(it.applicationContext,android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_DENIED){
@@ -201,6 +220,7 @@ class VehicleAddFragment : Fragment() {
         }
     }
 
+    //checks conditions
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -213,6 +233,7 @@ class VehicleAddFragment : Fragment() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
+    //checks conditions
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if(requestCode == 2 && resultCode == Activity.RESULT_OK && data != null){
             vehicleImage = data.data

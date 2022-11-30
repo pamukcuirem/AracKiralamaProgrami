@@ -27,6 +27,7 @@ class AdminDeleteVehicleFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //runs deleteVehicle function and moves to AdminVehicleDeleteAddFragment when vehicleDeleteButton is pressed
         vehicleDeleteButton.setOnClickListener {
             deleteVehicle(it)
             val action11 = AdminDeleteVehicleFragmentDirections.actionAdminDeleteVehicleFragmentToAdminVehicleDeleteAddFragment()
@@ -35,6 +36,7 @@ class AdminDeleteVehicleFragment : Fragment() {
 
     }
 
+    //deletes vehicle information from 'Araclar' database
     fun deleteVehicle(view : View){
 
         val vehicleToDelete = vehicleToDeleteEditText.text.toString()

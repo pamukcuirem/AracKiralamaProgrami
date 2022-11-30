@@ -25,16 +25,19 @@ class AdminOrCustomerEntranceFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //moves to VehicleViewForCustomer when customerLogInButton is pressed
         customerLogInButton.setOnClickListener {
             val action = AdminOrCustomerEntranceFragmentDirections.actionAdminOrCustomerEntranceFragmentToVehicleViewForCustomer()
             Navigation.findNavController(it).navigate(action)
         }
 
+        //moves to AdminVehicleDeleteAddFragment when adminButton is pressed
         adminButton.setOnClickListener {
             val action2 = AdminOrCustomerEntranceFragmentDirections.actionAdminOrCustomerEntranceFragmentToAdminVehicleDeleteAddFragment()
             Navigation.findNavController(it).navigate(action2)
         }
 
+        //moves to CustomerSignUpFragment when customerSignUpButton is pressed
         customerSignUpButton.setOnClickListener {
             val action3 = AdminOrCustomerEntranceFragmentDirections.actionAdminOrCustomerEntranceFragmentToCustomerSignUpFragment()
             Navigation.findNavController(it).navigate(action3)

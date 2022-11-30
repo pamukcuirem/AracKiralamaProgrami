@@ -13,6 +13,7 @@ class VehicleViewForCustomerAdapter(val vehicleIdList : ArrayList<Int>, val lice
 
     }
 
+    //binds the adapter and recyclerview
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VehicleViewForCustomerVH {
         val inflater = LayoutInflater.from(parent.context)
         val itemView =
@@ -20,6 +21,7 @@ class VehicleViewForCustomerAdapter(val vehicleIdList : ArrayList<Int>, val lice
         return VehicleViewForCustomerVH(itemView)
     }
 
+    //organizes what is going to be in the rows
     override fun onBindViewHolder(holder: VehicleViewForCustomerVH, position: Int) {
         val information = "Model: " + vehicleModelList[position] + "\nÖzellikler: " + gearTypeList[position] + "\n" + howManyPersonList[position] + " kişilik " + vehiclePowerList[position] + " HP " + "\nGünlük Fiyat: " + dailyPriceList[position]
         holder.itemView.vehicleInformationForCustomer.text = information
@@ -33,6 +35,7 @@ class VehicleViewForCustomerAdapter(val vehicleIdList : ArrayList<Int>, val lice
 
     }
 
+    //takes the number of rows for creating them
     override fun getItemCount(): Int {
         return licensePlateList.size
 

@@ -48,67 +48,80 @@ class CustomerSignUpFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        //runs addIdentity function when addIdentityButton is pressed
         addIdentityButton.setOnClickListener {
             addIdentity(it)
         }
+        //runs addDrivingLicense function when addDrivingLicenseButton is pressed
         addDrivingLicenseButton.setOnClickListener {
             addDrivingLicense(it)
         }
 
+        //runs customerSave function when customerCompleteSignUpButton is pressed
         customerCompleteSignUpButton.setOnClickListener {
             customerSave(it)
 
+        //moves to AdminOrCustomerEntranceFragment when isCustomerOk function is True
             if(isCustomerOk(view)){
                 val action11 = CustomerSignUpFragmentDirections.actionCustomerSignUpFragmentToAdminOrCustomerEntranceFragment()
                 Navigation.findNavController(it).navigate(action11)
             }
         }
 
-
         super.onViewCreated(view, savedInstanceState)
     }
 
+    //checks the customerName length is equals or less then 15
     fun isCustomerName(view: View) : Boolean{
         val customerName = customerSignUpNameEditText.text.toString()
         return customerName.length <= 15
     }
 
+    //checks the customerSurname length is equals or less then 15
     fun isCustomerSurname(view : View) : Boolean{
         val customerSurname = customerSignUpSurnameEditText.text.toString()
         return customerSurname.length <= 15
     }
 
+    //checks the customerPhoneNumber length is equals or less then 11
     fun isCustomerNumber(view : View) : Boolean{
         val customerPhoneNumber = customerSignUpPhoneNumberEditText.text.toString()
         return customerPhoneNumber.length <= 11
     }
 
+    //checks all customer information conditions
     fun isCustomerOk(view : View) : Boolean{
         return isCustomerName(view) && isCustomerSurname(view) && isCustomerNumber(view)
     }
 
+    //saves customer information to the 'Musteriler' database
     fun customerSave(view : View){
         val customerName = customerSignUpNameEditText.text.toString()
         val customerSurname = customerSignUpSurnameEditText.text.toString()
         val customerPhoneNumber = customerSignUpPhoneNumberEditText.text.toString()
 
+        //sends a warning message when isCustomerName function is 'False'
         if(!isCustomerName(view)){
             context?.let {
                 Toast.makeText(it,"İsim 15 karakterden fazla olamaz", Toast.LENGTH_LONG).show()
             }
         }
+
+        //sends a warning message when isCustomerSurname function is 'False'
         if(!isCustomerSurname(view)){
             context?.let {
                 Toast.makeText(it,"Soyisim 15 karakterden fazla olamaz",Toast.LENGTH_LONG).show()
             }
         }
 
+        //sends a warning message when isCustomerNumber function is 'False'
         if(!isCustomerNumber(view)){
             context?.let {
                 Toast.makeText(it,"Telefon numarası 11 rakamdan fazla olamaz",Toast.LENGTH_LONG).show()
             }
         }
 
+        //saves customer information to the 'Musteriler' database when isCustomerOk function is 'True'
         if(isCustomerOk(view)){
             try{
                context?.let {
@@ -127,6 +140,7 @@ class CustomerSignUpFragment : Fragment() {
         }
     }
 
+    //takes identity image
     fun addIdentity(view: View) {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
@@ -134,13 +148,14 @@ class CustomerSignUpFragment : Fragment() {
 
     }
 
-
+    //takes driving license image
     fun addDrivingLicense(view: View){
         val intent2 = Intent(Intent.ACTION_PICK)
         intent2.type = "image/*"
         startActivityForResult(intent2,IMAGE_REQUEST_CODE2)
     }
 
+    //checks permissions
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == IMAGE_REQUEST_CODE && resultCode == RESULT_OK){

@@ -26,16 +26,19 @@ class AdminVehicleDeleteAddFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //moves to VehicleViewForAdmin2 when adminViewButton is pressed
         adminViewButton.setOnClickListener {
             val action4 = AdminVehicleDeleteAddFragmentDirections.actionAdminVehicleDeleteAddFragmentToVehicleViewForAdmin2()
             Navigation.findNavController(it).navigate(action4)
         }
 
+        //moves to VehicleAddFragment when adminAddButton is pressed
         adminAddButton.setOnClickListener {
             val action5 = AdminVehicleDeleteAddFragmentDirections.actionAdminVehicleDeleteAddFragmentToVehicleAddFragment()
             Navigation.findNavController(it).navigate(action5)
         }
 
+        //moves to AdminDeleteVehicleFragment when adminDeleteButton is pressed
         adminDeleteButton.setOnClickListener {
             val action6 = AdminVehicleDeleteAddFragmentDirections.actionAdminVehicleDeleteAddFragmentToAdminDeleteVehicleFragment()
             Navigation.findNavController(it).navigate(action6)

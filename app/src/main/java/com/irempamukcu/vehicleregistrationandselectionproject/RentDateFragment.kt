@@ -26,6 +26,7 @@ class RentDateFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //moves to PaymentFragment when rentButton is pressed
         rentButton.setOnClickListener {
             val action8 = RentDateFragmentDirections.actionRentDateFragmentToPaymentFragment()
             Navigation.findNavController(it).navigate(action8)

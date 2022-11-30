@@ -42,6 +42,7 @@ class VehicleViewForCustomer : Fragment() {
         return inflater.inflate(R.layout.fragment_vehicle_view_for_customer, container, false)
     }
 
+    //runs sqlData function and creates a listadapter for showing the data
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         sqlData()
 
@@ -52,6 +53,8 @@ class VehicleViewForCustomer : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
     }
+
+    //takes data from 'Araclar' database and adds them to their lists
     fun sqlData(){
         try{
             activity?.let{
