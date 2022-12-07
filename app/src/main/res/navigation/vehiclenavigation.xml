@@ -11,13 +11,16 @@
         tools:layout="@layout/fragment_admin_or_customer_entrance" >
         <action
             android:id="@+id/action_adminOrCustomerEntranceFragment_to_customerSignUpFragment"
-            app:destination="@id/customerSignUpFragment" />
+            app:destination="@id/customerSignUpFragment"
+            app:enterAnim="@android:anim/fade_in" />
         <action
             android:id="@+id/action_adminOrCustomerEntranceFragment_to_vehicleViewForCustomer"
-            app:destination="@id/vehicleViewForCustomer" />
+            app:destination="@id/vehicleViewForCustomer"
+            app:enterAnim="@android:anim/fade_in" />
         <action
             android:id="@+id/action_adminOrCustomerEntranceFragment_to_adminVehicleDeleteAddFragment"
-            app:destination="@id/adminVehicleDeleteAddFragment" />
+            app:destination="@id/adminVehicleDeleteAddFragment"
+            app:enterAnim="@android:anim/fade_in" />
     </fragment>
     <fragment
         android:id="@+id/customerSignUpFragment"
@@ -26,7 +29,8 @@
         tools:layout="@layout/fragment_customer_sign_up" >
         <action
             android:id="@+id/action_customerSignUpFragment_to_adminOrCustomerEntranceFragment"
-            app:destination="@id/adminOrCustomerEntranceFragment" />
+            app:destination="@id/adminOrCustomerEntranceFragment"
+            app:enterAnim="@android:anim/fade_in" />
     </fragment>
     <fragment
         android:id="@+id/vehicleViewForCustomer"
@@ -35,7 +39,8 @@
         tools:layout="@layout/fragment_vehicle_view_for_customer" >
         <action
             android:id="@+id/action_vehicleViewForCustomer_to_rentDateFragment"
-            app:destination="@id/rentDateFragment" />
+            app:destination="@id/rentDateFragment"
+            app:enterAnim="@android:anim/fade_in" />
     </fragment>
     <fragment
         android:id="@+id/adminVehicleDeleteAddFragment"
@@ -44,13 +49,16 @@
         tools:layout="@layout/fragment_admin_vehicle_delete_add" >
         <action
             android:id="@+id/action_adminVehicleDeleteAddFragment_to_vehicleViewForAdmin2"
-            app:destination="@id/vehicleViewForAdmin2" />
+            app:destination="@id/vehicleViewForAdmin2"
+            app:enterAnim="@android:anim/fade_in" />
         <action
             android:id="@+id/action_adminVehicleDeleteAddFragment_to_vehicleAddFragment"
-            app:destination="@id/vehicleAddFragment" />
+            app:destination="@id/vehicleAddFragment"
+            app:enterAnim="@android:anim/fade_in" />
         <action
             android:id="@+id/action_adminVehicleDeleteAddFragment_to_adminDeleteVehicleFragment"
-            app:destination="@id/adminDeleteVehicleFragment" />
+            app:destination="@id/adminDeleteVehicleFragment"
+            app:enterAnim="@android:anim/fade_in" />
     </fragment>
     <fragment
         android:id="@+id/vehicleViewForAdmin2"
@@ -64,7 +72,8 @@
         tools:layout="@layout/fragment_vehicle_add" >
         <action
             android:id="@+id/action_vehicleAddFragment_to_adminVehicleDeleteAddFragment"
-            app:destination="@id/adminVehicleDeleteAddFragment" />
+            app:destination="@id/adminVehicleDeleteAddFragment"
+            app:enterAnim="@android:anim/fade_in" />
     </fragment>
     <fragment
         android:id="@+id/rentDateFragment"
@@ -73,7 +82,8 @@
         tools:layout="@layout/fragment_rent_date" >
         <action
             android:id="@+id/action_rentDateFragment_to_paymentFragment"
-            app:destination="@id/paymentFragment" />
+            app:destination="@id/paymentFragment"
+            app:enterAnim="@android:anim/fade_in" />
     </fragment>
     <fragment
         android:id="@+id/paymentFragment"
@@ -82,7 +92,8 @@
         tools:layout="@layout/fragment_payment" >
         <action
             android:id="@+id/action_paymentFragment_to_adminOrCustomerEntranceFragment"
-            app:destination="@id/adminOrCustomerEntranceFragment" />
+            app:destination="@id/adminOrCustomerEntranceFragment"
+            app:enterAnim="@android:anim/fade_in" />
     </fragment>
     <fragment
         android:id="@+id/adminDeleteVehicleFragment"
@@ -91,6 +102,7 @@
         tools:layout="@layout/fragment_admin_delete_vehicle" >
         <action
             android:id="@+id/action_adminDeleteVehicleFragment_to_adminVehicleDeleteAddFragment"
-            app:destination="@id/adminVehicleDeleteAddFragment" />
+            app:destination="@id/adminVehicleDeleteAddFragment"
+            app:enterAnim="@android:anim/fade_in" />
     </fragment>
 </navigation>

@@ -13,16 +13,17 @@
         android:layout_height="0dp"
         android:layout_marginTop="73dp"
         android:layout_marginBottom="41dp"
-        android:backgroundTint="#60006064"
         android:text="Müşteri"
         android:textAlignment="center"
         android:textColor="#C1000000"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:backgroundTint="#60006064"
         app:layout_constraintBottom_toTopOf="@+id/customerSignUpButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <Button
         android:id="@+id/customerSignUpButton"

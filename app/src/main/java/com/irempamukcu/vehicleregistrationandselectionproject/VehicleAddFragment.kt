@@ -200,6 +200,13 @@ class VehicleAddFragment : Fragment() {
                     statement.bindBlob(8,vehicleByte)
                     statement.execute()
 
+                    //val database3 = it.openOrCreateDatabase("Ofisler", Context.MODE_PRIVATE,null)
+                    //database3.execSQL("CREATE TABLE IF NOT EXISTS ofisler(id INTEGER PRIMARY KEY, ofis VARCHAR)")
+                    //database3.execSQL("INSERT INTO ofisler(ofis) VALUES ('Kadıköy')")
+                    //database3.execSQL("INSERT INTO ofisler(ofis) VALUES ('Maltepe')")
+                    //database3.execSQL("INSERT INTO ofisler(ofis) VALUES ('Beşiktaş')")
+                    //database3.execSQL("INSERT INTO ofisler(ofis) VALUES ('Fatih')")
+
 
                 }
             }catch (e : Exception){
