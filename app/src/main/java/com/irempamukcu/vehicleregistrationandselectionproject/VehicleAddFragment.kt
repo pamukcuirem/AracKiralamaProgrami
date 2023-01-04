@@ -57,7 +57,7 @@ class VehicleAddFragment : Fragment() {
             //moves to AdminVehicleDeleteAddFragment when isVehicleOk function is 'True'
             if(isVehicleOk(view)){
 
-                val action9 = VehicleAddFragmentDirections.actionVehicleAddFragmentToAdminVehicleDeleteAddFragment()
+              val action9 = VehicleAddFragmentDirections.actionVehicleAddFragmentToAdminVehicleDeleteAddFragment()
                 Navigation.findNavController(it).navigate(action9)
             }
 

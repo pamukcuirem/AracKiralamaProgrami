@@ -1,13 +1,16 @@
 package com.irempamukcu.vehicleregistrationandselectionproject
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.view.*
+import android.view.View.inflate
+import androidx.appcompat.resources.Compatibility.Api21Impl.inflate
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_vehicle_view_for_admin.*
 import java.sql.Blob
@@ -99,6 +102,18 @@ class VehicleViewForAdmin : Fragment() {
             e.printStackTrace()
         }
 
+    }
+/////////////////////////////////////////////////////////////////////////////////
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.options_menu,menu)
+
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+
+        return super.onOptionsItemSelected(item)
     }
 
 }
