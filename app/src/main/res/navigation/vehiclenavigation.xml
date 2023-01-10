@@ -42,21 +42,6 @@
             app:enterAnim="@android:anim/fade_in" />
     </fragment>
     <fragment
-        android:id="@+id/vehicleViewForAdmin2"
-        android:name="com.irempamukcu.vehicleregistrationandselectionproject.VehicleViewForAdmin"
-        android:label="fragment_vehicle_view_for_admin"
-        tools:layout="@layout/fragment_vehicle_view_for_admin" >
-        <action
-            android:id="@+id/action_vehicleViewForAdmin2_to_customerViewForAdmin"
-            app:destination="@id/customerViewForAdmin" />
-        <action
-            android:id="@+id/action_vehicleViewForAdmin2_to_vehicleAddFragment"
-            app:destination="@id/vehicleAddFragment" />
-        <action
-            android:id="@+id/action_vehicleViewForAdmin2_to_adminDeleteVehicleFragment"
-            app:destination="@id/adminDeleteVehicleFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/vehicleAddFragment"
         android:name="com.irempamukcu.vehicleregistrationandselectionproject.VehicleAddFragment"
         android:label="fragment_vehicle_add"
@@ -106,5 +91,20 @@
         <action
             android:id="@+id/action_verifyVehicleForCustomer_to_paymentFragment"
             app:destination="@id/paymentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/vehicleViewForAdmin2"
+        android:name="com.irempamukcu.vehicleregistrationandselectionproject.VehicleViewForAdmin"
+        android:label="fragment_vehicle_view_for_admin"
+        tools:layout="@layout/fragment_vehicle_view_for_admin" >
+        <action
+            android:id="@+id/action_vehicleViewForAdmin2_to_vehicleAddFragment"
+            app:destination="@id/vehicleAddFragment" />
+        <action
+            android:id="@+id/action_vehicleViewForAdmin2_to_adminDeleteVehicleFragment"
+            app:destination="@id/adminDeleteVehicleFragment" />
+        <action
+            android:id="@+id/action_vehicleViewForAdmin2_to_customerViewForAdmin"
+            app:destination="@id/customerViewForAdmin" />
     </fragment>
 </navigation>

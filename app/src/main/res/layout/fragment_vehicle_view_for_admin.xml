@@ -6,48 +6,63 @@
     android:layout_height="match_parent"
     tools:context=".VehicleViewForAdmin">
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewForAdmin"
         android:layout_width="match_parent"
-        android:layout_height="477dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="493dp"
+
+        android:layout_marginBottom="76dp"
+        app:layout_constraintBottom_toBottomOf="@+id/goDeleteVehicleButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.015" />
+        app:layout_constraintVertical_bias="0.0" />
 
-    <ImageButton
+    <Button
         android:id="@+id/goAddVehicleButton"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="10dp"
-        android:src="@drawable/ic_baseline_directions_car_24"
-        app:layout_constraintBottom_toBottomOf="@+id/goDeleteVehicleButton"
-        app:layout_constraintEnd_toStartOf="@+id/goDeleteVehicleButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/goDeleteVehicleButton" />
-
-    <ImageButton
-        android:id="@+id/goDeleteVehicleButton"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="2dp"
-        android:src="@drawable/ic_baseline_delete_24"
+        android:layout_width="125dp"
+        android:layout_height="61dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#60006064"
+        android:onClick="saveVehicle"
+        android:text="Ekle"
+        android:textAlignment="center"
+        android:textColor="#C1000000"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/goShowCustomerButton"
-        app:layout_constraintStart_toEndOf="@+id/goAddVehicleButton" />
+        app:layout_constraintEnd_toStartOf="@+id/goDeleteVehicleButton"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageButton
+    <Button
+        android:id="@+id/goDeleteVehicleButton"
+        android:layout_width="125dp"
+        android:layout_height="61dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#60006064"
+        android:onClick="saveVehicle"
+        android:text="Sil"
+        android:textAlignment="center"
+        android:textColor="#C1000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/goShowCustomerButton" />
+
+    <Button
         android:id="@+id/goShowCustomerButton"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:src="@drawable/ic_baseline_person_24"
-        app:layout_constraintBottom_toBottomOf="@+id/goDeleteVehicleButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/goDeleteVehicleButton"
-        app:layout_constraintTop_toTopOf="@+id/goDeleteVehicleButton" />
+        android:layout_width="125dp"
+        android:layout_height="61dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#60006064"
+        android:onClick="saveVehicle"
+        android:text="Müşteri Listesi"
+        android:textAlignment="center"
+        android:textColor="#C1000000"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

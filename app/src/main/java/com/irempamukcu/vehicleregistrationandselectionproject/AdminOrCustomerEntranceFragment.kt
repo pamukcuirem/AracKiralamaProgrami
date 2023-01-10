@@ -27,6 +27,7 @@ class AdminOrCustomerEntranceFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
+
         //moves to VehicleViewForCustomer when customerLogInButton is pressed
         customerLogInButton.setOnClickListener {
             val action = AdminOrCustomerEntranceFragmentDirections.actionAdminOrCustomerEntranceFragmentToVehicleViewForCustomer()

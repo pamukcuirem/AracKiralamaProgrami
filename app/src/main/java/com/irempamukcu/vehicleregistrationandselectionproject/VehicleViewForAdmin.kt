@@ -47,10 +47,6 @@ class VehicleViewForAdmin : Fragment() {
 
     //runs sqlData function and creates a listAdapter for showing the data
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        sqlData()
-        listAdapter = VehicleViewForAdminAdapter(vehicleIdList,vehicleModelList,licensePlateList,vehicleHealthList,vehicleAvailableList,vehicleBitmapList)
-        recyclerViewForAdmin.layoutManager = LinearLayoutManager(context)
-        recyclerViewForAdmin.adapter = listAdapter
 
         goAddVehicleButton.setOnClickListener {
             val action20 = VehicleViewForAdminDirections.actionVehicleViewForAdmin2ToVehicleAddFragment()
@@ -64,8 +60,12 @@ class VehicleViewForAdmin : Fragment() {
 
         goShowCustomerButton.setOnClickListener {
             val action22 = VehicleViewForAdminDirections.actionVehicleViewForAdmin2ToCustomerViewForAdmin()
-            Navigation.findNavController(it).navigate(action22)
-        }
+            Navigation.findNavController(it).navigate(action22)}
+
+        sqlData()
+        listAdapter = VehicleViewForAdminAdapter(vehicleIdList,vehicleModelList,licensePlateList,vehicleHealthList,vehicleAvailableList,vehicleBitmapList)
+        recyclerViewForAdmin.layoutManager = LinearLayoutManager(context)
+        recyclerViewForAdmin.adapter = listAdapter
 
         super.onViewCreated(view, savedInstanceState)
 
@@ -75,8 +75,9 @@ class VehicleViewForAdmin : Fragment() {
     fun sqlData(){
         try{
             activity?.let{
-                val database = it.openOrCreateDatabase("Araclar",Context.MODE_PRIVATE,null)
-                val cursor = database.rawQuery("SELECT * FROM araclar",null)
+                val database = it.openOrCreateDatabase("Arabalar",Context.MODE_PRIVATE,null)
+                database.execSQL("CREATE TABLE IF NOT EXISTS arabalar(id INTEGER PRIMARY KEY, aracmodeli VARCHAR, plaka VARCHAR, saglik VARCHAR, beygir VARCHAR, vitestipi VARCHAR, kackisilik VARCHAR, gunlukucret VARCHAR, musaitmi VARCHAR, aracfoto BLOB)")
+                val cursor = database.rawQuery("SELECT * FROM arabalar",null)
                 val vehicleIdIndex = cursor.getColumnIndex("id")
                 val vehicleModelIndex = cursor.getColumnIndex("aracmodeli")
                 val vehicleHealthIndex = cursor.getColumnIndex("saglik")

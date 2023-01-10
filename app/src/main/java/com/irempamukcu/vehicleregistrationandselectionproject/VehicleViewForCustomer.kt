@@ -58,8 +58,8 @@ class VehicleViewForCustomer : Fragment() {
     fun sqlData2(){
         try{
             activity?.let{
-                val database = it.openOrCreateDatabase("Araclar", Context.MODE_PRIVATE,null)
-                val cursor = database.rawQuery("SELECT * FROM araclar",null)
+                val database = it.openOrCreateDatabase("Arabalar", Context.MODE_PRIVATE,null)
+                val cursor = database.rawQuery("SELECT * FROM arabalar",null)
                 val vehicleIdIndex = cursor.getColumnIndex("id")
                 val vehicleModelIndex = cursor.getColumnIndex("aracmodeli")
                 val vehicleHealthIndex = cursor.getColumnIndex("saglik")

@@ -197,9 +197,9 @@ class VehicleAddFragment : Fragment() {
 
             try{
                 context?.let{
-                    val database = it.openOrCreateDatabase("Araclar", Context.MODE_PRIVATE,null)
-                    database.execSQL("CREATE TABLE IF NOT EXISTS araclar(id INTEGER PRIMARY KEY, aracmodeli VARCHAR, plaka VARCHAR, saglik VARCHAR, beygir VARCHAR, vitestipi VARCHAR, kackisilik VARCHAR, gunlukucret VARCHAR, musaitmi VARCHAR, aracfoto BLOB)")
-                    val sqlString = "INSERT INTO araclar(aracmodeli, plaka, saglik, beygir, vitestipi, kackisilik, gunlukucret, musaitmi, aracfoto) VALUES (?,?,?,?,?,?,?,?,?)"
+                    val database = it.openOrCreateDatabase("Arabalar", Context.MODE_PRIVATE,null)
+                    database.execSQL("CREATE TABLE IF NOT EXISTS arabalar(id INTEGER PRIMARY KEY, aracmodeli VARCHAR, plaka VARCHAR, saglik VARCHAR, beygir VARCHAR, vitestipi VARCHAR, kackisilik VARCHAR, gunlukucret VARCHAR, musaitmi VARCHAR, aracfoto BLOB)")
+                    val sqlString = "INSERT INTO arabalar(aracmodeli, plaka, saglik, beygir, vitestipi, kackisilik, gunlukucret, musaitmi, aracfoto) VALUES (?,?,?,?,?,?,?,?,?)"
                     val statement = database.compileStatement(sqlString)
                     statement.bindString(1,vehicleModel)
                     statement.bindString(2,licensePlate)

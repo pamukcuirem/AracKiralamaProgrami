@@ -12,7 +12,7 @@
     <ImageView
         android:id="@+id/vehicleImageAdminView"
         android:layout_width="212dp"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/vehicleInformationForAdmin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.07"
@@ -24,7 +24,7 @@
     <TextView
         android:id="@+id/vehicleInformationForAdmin"
         android:layout_width="381dp"
-        android:layout_height="43dp"
+        android:layout_height="wrap_content"
         android:text=""
         android:textAlignment="textStart"
         android:textSize="20sp"
