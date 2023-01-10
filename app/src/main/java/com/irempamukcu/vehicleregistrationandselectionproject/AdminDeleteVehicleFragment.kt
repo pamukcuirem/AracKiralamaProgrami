@@ -28,6 +28,12 @@ class AdminDeleteVehicleFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         //runs deleteVehicle function and moves to AdminVehicleDeleteAddFragment when vehicleDeleteButton is pressed
+        vehicleUpdateButton.setOnClickListener {
+            updateVehicle(it)
+            val action11 = AdminDeleteVehicleFragmentDirections.actionAdminDeleteVehicleFragmentToAdminOrCustomerEntranceFragment()
+            Navigation.findNavController(it).navigate(action11)
+        }
+
         vehicleDeleteButton.setOnClickListener {
             deleteVehicle(it)
             val action11 = AdminDeleteVehicleFragmentDirections.actionAdminDeleteVehicleFragmentToAdminOrCustomerEntranceFragment()
@@ -44,15 +50,24 @@ class AdminDeleteVehicleFragment : Fragment() {
 
         try{
             context?.let{
-                val database = it.openOrCreateDatabase("Araclar", Context.MODE_PRIVATE,null)
-                database.execSQL("CREATE TABLE IF NOT EXISTS araclar(id INTEGER PRIMARY KEY, aracmodeli VARCHAR, plaka VARCHAR, saglik VARCHAR, beygir VARCHAR, vitestipi VARCHAR, kackisilik VARCHAR, gunlukucret VARCHAR, aracfoto BLOB)")
-                database.execSQL("DELETE FROM araclar WHERE plaka = '${vehicleToDelete}'")
+                val database = it.openOrCreateDatabase("Arabalar", Context.MODE_PRIVATE,null)
+                database.execSQL("CREATE TABLE IF NOT EXISTS arabalar(id INTEGER PRIMARY KEY, aracmodeli VARCHAR, plaka VARCHAR, saglik VARCHAR, beygir VARCHAR, vitestipi VARCHAR, kackisilik VARCHAR, gunlukucret VARCHAR, musaitmi VARCHAR, aracfoto BLOB)")
+                database.execSQL("DELETE FROM arabalar WHERE plaka = '${vehicleToDelete}'")
             }
 
         }catch (e : Exception){
             e.printStackTrace()
         }
 
+    }
+
+    fun updateVehicle(view : View){
+        val vehicleToUpdate = vehicleToUpdateEditText2.text.toString()
+        context?.let{
+            val database = it.openOrCreateDatabase("Arabalar", Context.MODE_PRIVATE,null)
+            database.execSQL("CREATE TABLE IF NOT EXISTS arabalar(id INTEGER PRIMARY KEY, aracmodeli VARCHAR, plaka VARCHAR, saglik VARCHAR, beygir VARCHAR, vitestipi VARCHAR, kackisilik VARCHAR, gunlukucret VARCHAR, musaitmi VARCHAR, aracfoto BLOB)")
+            database.execSQL("UPDATE arabalar SET musaitmi = 'Müsait' WHERE plaka = '${vehicleToUpdate}'")
+        }
     }
 
 }

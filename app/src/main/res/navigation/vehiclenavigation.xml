@@ -58,6 +58,12 @@
         <action
             android:id="@+id/action_rentDateFragment_to_verifyVehicleForCustomer"
             app:destination="@id/verifyVehicleForCustomer" />
+        <argument
+            android:name="licensePlate"
+            app:argType="string" />
+        <argument
+            android:name="price"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/paymentFragment"
@@ -95,6 +101,15 @@
             android:name="startRentDate"
             app:argType="string" />
         <argument android:name="finishRentDate"
+            app:argType="string" />
+        <argument
+            android:name="licensePlateArgs"
+            app:argType="string" />
+        <argument
+            android:name="priceArgs"
+            app:argType="string" />
+        <argument
+            android:name="officeArgs"
             app:argType="string" />
     </fragment>
     <fragment

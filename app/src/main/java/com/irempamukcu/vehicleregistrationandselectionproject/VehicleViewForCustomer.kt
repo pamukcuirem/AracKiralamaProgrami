@@ -24,6 +24,7 @@ class VehicleViewForCustomer : Fragment() {
     var vehiclePowerList = ArrayList<String>()
     var  howManyPersonList = ArrayList<String>()
     var dailyPriceList = ArrayList<String>()
+    var availableList = ArrayList<String>()
     var vehicleBitmapList = ArrayList<Bitmap>()
     private lateinit var listAdapter2 :VehicleViewForCustomerAdapter
 
@@ -46,7 +47,7 @@ class VehicleViewForCustomer : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         sqlData2()
 
-        listAdapter2 = VehicleViewForCustomerAdapter(vehicleIdList,licensePlateList, vehicleModelList, gearTypeList, howManyPersonList, vehiclePowerList, dailyPriceList, vehicleBitmapList)
+        listAdapter2 = VehicleViewForCustomerAdapter(vehicleIdList,licensePlateList, vehicleModelList, gearTypeList, howManyPersonList, vehiclePowerList, dailyPriceList, availableList, vehicleBitmapList)
         recyclerViewForCustomer.layoutManager = LinearLayoutManager(context)
         recyclerViewForCustomer.adapter = listAdapter2
 
@@ -68,6 +69,7 @@ class VehicleViewForCustomer : Fragment() {
                 val howManyPersonIndex = cursor.getColumnIndex("kackisilik")
                 val dailyPriceIndex = cursor.getColumnIndex("gunlukucret")
                 val vehicleBlobIndex = cursor.getColumnIndex("aracfoto")
+                val avaliableIndex = cursor.getColumnIndex("musaitmi")
                 val licensePlateIndex = cursor.getColumnIndex("plaka")
 
                 vehicleIdList.clear()
@@ -78,6 +80,7 @@ class VehicleViewForCustomer : Fragment() {
                 gearTypeList.clear()
                 howManyPersonList.clear()
                 dailyPriceList.clear()
+                availableList.clear()
                 vehicleBitmapList.clear()
 
                 while(cursor.moveToNext()){
@@ -88,6 +91,7 @@ class VehicleViewForCustomer : Fragment() {
                     licensePlateList.add(cursor.getString(licensePlateIndex))
                     gearTypeList.add(cursor.getString(gearTypeIndex))
                     howManyPersonList.add(cursor.getString(howManyPersonIndex))
+                    availableList.add(cursor.getString(avaliableIndex))
                     dailyPriceList.add(cursor.getString(dailyPriceIndex))
 
                     val myByteArray = cursor.getBlob(vehicleBlobIndex)

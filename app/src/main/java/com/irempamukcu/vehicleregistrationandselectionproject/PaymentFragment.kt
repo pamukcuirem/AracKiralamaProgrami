@@ -26,17 +26,21 @@ class PaymentFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+
         //runs savePayment function when paymentCompleteButton is pressed
         paymentCompleteButton.setOnClickListener {
             savePayment(it)
 
             //moves to AdminOrCustomerEntranceFragment when isPaymentOk function is 'True'
             if(isPaymetnOk(view)){
+
                 val action13 = PaymentFragmentDirections.actionPaymentFragmentToAdminOrCustomerEntranceFragment()
                 Navigation.findNavController(it).navigate(action13)
             }
 
         }
+
         super.onViewCreated(view, savedInstanceState)
     }
 
