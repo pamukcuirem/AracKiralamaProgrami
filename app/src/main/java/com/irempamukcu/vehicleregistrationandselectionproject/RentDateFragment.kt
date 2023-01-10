@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_rent_date.*
 
@@ -26,9 +27,14 @@ class RentDateFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+
         //moves to PaymentFragment when rentButton is pressed
         rentButton.setOnClickListener {
-            val action8 = RentDateFragmentDirections.actionRentDateFragmentToVerifyVehicleForCustomer()
+            val start = rentStartDate.text.toString()
+            val finish = editTextDate2.text.toString()
+
+            val action8 = RentDateFragmentDirections.actionRentDateFragmentToVerifyVehicleForCustomer(start,finish)
             Navigation.findNavController(it).navigate(action8)
         }
     }

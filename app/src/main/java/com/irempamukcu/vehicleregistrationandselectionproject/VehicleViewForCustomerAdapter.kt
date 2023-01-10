@@ -26,11 +26,12 @@ class VehicleViewForCustomerAdapter(val vehicleIdList : ArrayList<Int>, val lice
         holder.itemView.vehicleInformationForCustomer.text = information
 
         holder.itemView.vehicleImageCustomerView.setImageBitmap(vehicleBitmapList[position])
-
-        holder.itemView.pickVehicleButton.setOnClickListener {
+        holder.itemView.setOnClickListener {
             val action13 = VehicleViewForCustomerDirections.actionVehicleViewForCustomerToRentDateFragment()
             Navigation.findNavController(it).navigate(action13)
         }
+
+
 
     }
 

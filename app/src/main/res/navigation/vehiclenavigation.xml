@@ -47,7 +47,7 @@
         android:label="fragment_vehicle_add"
         tools:layout="@layout/fragment_vehicle_add" >
         <action
-            android:id="@+id/action_vehicleAddFragment_to_adminOrCustomerEntranceFragment"
+            android:id="@+id/action_vehicleAddFragment_to_adminOrCustomerEntranceFragment2"
             app:destination="@id/adminOrCustomerEntranceFragment" />
     </fragment>
     <fragment
@@ -91,6 +91,11 @@
         <action
             android:id="@+id/action_verifyVehicleForCustomer_to_paymentFragment"
             app:destination="@id/paymentFragment" />
+        <argument
+            android:name="startRentDate"
+            app:argType="string" />
+        <argument android:name="finishRentDate"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/vehicleViewForAdmin2"
