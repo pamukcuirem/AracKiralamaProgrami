@@ -30,7 +30,7 @@ class AdminDeleteVehicleFragment : Fragment() {
         //runs deleteVehicle function and moves to AdminVehicleDeleteAddFragment when vehicleDeleteButton is pressed
         vehicleDeleteButton.setOnClickListener {
             deleteVehicle(it)
-            val action11 = AdminDeleteVehicleFragmentDirections.actionAdminDeleteVehicleFragmentToAdminVehicleDeleteAddFragment()
+            val action11 = AdminDeleteVehicleFragmentDirections.actionAdminDeleteVehicleFragmentToAdminOrCustomerEntranceFragment()
             Navigation.findNavController(it).navigate(action11)
         }
 

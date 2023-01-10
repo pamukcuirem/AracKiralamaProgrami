@@ -16,8 +16,7 @@ class VehicleViewForCustomerAdapter(val vehicleIdList : ArrayList<Int>, val lice
     //binds the adapter and recyclerview
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VehicleViewForCustomerVH {
         val inflater = LayoutInflater.from(parent.context)
-        val itemView =
-            inflater.inflate(R.layout.vehicle_view_for_customer_recycler_row, parent, false)
+        val itemView = inflater.inflate(R.layout.vehicle_view_for_customer_recycler_row, parent, false)
         return VehicleViewForCustomerVH(itemView)
     }
 

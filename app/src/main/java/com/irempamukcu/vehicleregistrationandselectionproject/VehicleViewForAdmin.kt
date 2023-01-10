@@ -25,11 +25,14 @@ class VehicleViewForAdmin : Fragment() {
     var vehiclePowerList = ArrayList<String>()
     var  howManyPersonList = ArrayList<String>()
     var dailyPriceList = ArrayList<String>()
+    var vehicleAvailableList = ArrayList<String>()
     var vehicleBitmapList = ArrayList<Bitmap>()
     private lateinit var listAdapter :VehicleViewForAdminAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+
         super.onCreate(savedInstanceState)
 
     }
@@ -45,10 +48,24 @@ class VehicleViewForAdmin : Fragment() {
     //runs sqlData function and creates a listAdapter for showing the data
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         sqlData()
+        listAdapter = VehicleViewForAdminAdapter(vehicleIdList,vehicleModelList,licensePlateList,vehicleHealthList,vehicleAvailableList,vehicleBitmapList)
+        recyclerViewForAdmin.layoutManager = LinearLayoutManager(context)
+        recyclerViewForAdmin.adapter = listAdapter
 
-        listAdapter = VehicleViewForAdminAdapter(vehicleIdList,vehicleModelList,licensePlateList,vehicleHealthList,vehicleBitmapList)
-        recyclerViewforAdmin.layoutManager = LinearLayoutManager(context)
-        recyclerViewforAdmin.adapter = listAdapter
+        goAddVehicleButton.setOnClickListener {
+            val action20 = VehicleViewForAdminDirections.actionVehicleViewForAdmin2ToVehicleAddFragment()
+            Navigation.findNavController(it).navigate(action20)
+        }
+
+        goDeleteVehicleButton.setOnClickListener {
+            val action21 = VehicleViewForAdminDirections.actionVehicleViewForAdmin2ToAdminDeleteVehicleFragment()
+            Navigation.findNavController(it).navigate(action21)
+        }
+
+        goShowCustomerButton.setOnClickListener {
+            val action22 = VehicleViewForAdminDirections.actionVehicleViewForAdmin2ToCustomerViewForAdmin()
+            Navigation.findNavController(it).navigate(action22)
+        }
 
         super.onViewCreated(view, savedInstanceState)
 
@@ -67,8 +84,9 @@ class VehicleViewForAdmin : Fragment() {
                 val gearTypeIndex = cursor.getColumnIndex("vitestipi")
                 val howManyPersonIndex = cursor.getColumnIndex("kackisilik")
                 val dailyPriceIndex = cursor.getColumnIndex("gunlukucret")
-                val vehicleBlobIndex = cursor.getColumnIndex("aracfoto")
                 val licensePlateIndex = cursor.getColumnIndex("plaka")
+                val availableIndex = cursor.getColumnIndex("musaitmi")
+                val vehicleBlobIndex = cursor.getColumnIndex("aracfoto")
 
                 vehicleIdList.clear()
                 vehicleModelList.clear()
@@ -79,6 +97,7 @@ class VehicleViewForAdmin : Fragment() {
                 howManyPersonList.clear()
                 dailyPriceList.clear()
                 vehicleBitmapList.clear()
+                vehicleAvailableList.clear()
 
                 while(cursor.moveToNext()){
                     vehicleIdList.add(cursor.getInt(vehicleIdIndex))
@@ -89,6 +108,7 @@ class VehicleViewForAdmin : Fragment() {
                     gearTypeList.add(cursor.getString(gearTypeIndex))
                     howManyPersonList.add(cursor.getString(howManyPersonIndex))
                     dailyPriceList.add(cursor.getString(dailyPriceIndex))
+                    vehicleAvailableList.add(cursor.getString(availableIndex))
 
                     val myByteArray = cursor.getBlob(vehicleBlobIndex)
                     val myBitmap = BitmapFactory.decodeByteArray(myByteArray,0,myByteArray.size)
@@ -103,17 +123,4 @@ class VehicleViewForAdmin : Fragment() {
         }
 
     }
-/////////////////////////////////////////////////////////////////////////////////
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.options_menu,menu)
-
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
-
-        return super.onOptionsItemSelected(item)
-    }
-
 }

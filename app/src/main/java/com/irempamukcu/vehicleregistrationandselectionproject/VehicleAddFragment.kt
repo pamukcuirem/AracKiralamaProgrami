@@ -44,7 +44,6 @@ class VehicleAddFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
-
         return inflater.inflate(R.layout.fragment_vehicle_add, container, false)
     }
 
@@ -55,11 +54,10 @@ class VehicleAddFragment : Fragment() {
             saveVehicle(it)
 
             //moves to AdminVehicleDeleteAddFragment when isVehicleOk function is 'True'
-            if(isVehicleOk(view)){
-
-              val action9 = VehicleAddFragmentDirections.actionVehicleAddFragmentToAdminVehicleDeleteAddFragment()
-                Navigation.findNavController(it).navigate(action9)
-            }
+          if(isVehicleOk(view)){
+              val action34 = VehicleAddFragmentDirections.actionVehicleAddFragmentToAdminOrCustomerEntranceFragment()
+              Navigation.findNavController(it).navigate(action34)
+          }
 
         }
 
@@ -113,11 +111,17 @@ class VehicleAddFragment : Fragment() {
         return dailyPrice.length <= 8
     }
 
+    fun isVehicleAvailable(view : View) : Boolean{
+        val isAvailable = addVehicleAvailableEditText.text.toString()
+        return isAvailable.equals("Müsait",ignoreCase = true) || isAvailable.equals("Müsait değil",ignoreCase = true)
+    }
+
     //checks all vehicle conditions
     fun isVehicleOk(view : View) : Boolean{
-
-        return isVehicleModel(view) && isLicensePlate(view) && isVehicleHealth(view) && isVehiclePower(view) && isgearType(view) && isHowManyPerson(view) && isDailyPrice(view) && vehicleBitmap != null
+        return isVehicleModel(view) && isLicensePlate(view) && isVehicleHealth(view) && isVehiclePower(view) && isgearType(view) && isHowManyPerson(view) && isVehicleAvailable(view) && isDailyPrice(view) && vehicleBitmap != null
     }
+
+
 
     //saves vehicle information to the 'Araclar' database
     fun saveVehicle(view : View){
@@ -128,6 +132,7 @@ class VehicleAddFragment : Fragment() {
         val gearType = addVehicleGearTypeEditText.text.toString()
         val howManyPerson = addVehicleHowManyPersonEditText.text.toString()
         val dailyPrice = addVehicleDailyPriceEditText.text.toString()
+        val available = addVehicleAvailableEditText.text.toString()
 
         //sends a warning message when isVehicleModel function is 'False'
         if(!isVehicleModel(view)){
@@ -178,6 +183,12 @@ class VehicleAddFragment : Fragment() {
             }
         }
 
+        if(!isVehicleAvailable(view)){
+            context?.let {
+                Toast.makeText(it,"Araç durumu sadece 'Müsait' ya da 'Müsait değil' değerlerini alabilir",Toast.LENGTH_LONG).show()
+            }
+        }
+
         //saves vehicle information to the 'Araclar' database when isVehicleOk function is 'True'
         if(isVehicleOk(view)){
             val outputStream = ByteArrayOutputStream()
@@ -187,8 +198,22 @@ class VehicleAddFragment : Fragment() {
             try{
                 context?.let{
                     val database = it.openOrCreateDatabase("Araclar", Context.MODE_PRIVATE,null)
-                    database.execSQL("CREATE TABLE IF NOT EXISTS araclar(id INTEGER PRIMARY KEY, aracmodeli VARCHAR, plaka VARCHAR, saglik VARCHAR, beygir VARCHAR, vitestipi VARCHAR, kackisilik VARCHAR, gunlukucret VARCHAR, aracfoto BLOB)")
-                    val sqlString = "INSERT INTO araclar(aracmodeli, plaka, saglik, beygir, vitestipi, kackisilik, gunlukucret, aracfoto) VALUES (?,?,?,?,?,?,?,?)"
+                    database.execSQL("CREATE TABLE IF NOT EXISTS araclar(id INTEGER PRIMARY KEY, aracmodeli VARCHAR, plaka VARCHAR, saglik VARCHAR, beygir VARCHAR, vitestipi VARCHAR, kackisilik VARCHAR, gunlukucret VARCHAR, musaitmi VARCHAR, aracfoto BLOB)")
+                    val sqlString = "INSERT INTO araclar(aracmodeli, plaka, saglik, beygir, vitestipi, kackisilik, gunlukucret, musaitmi, aracfoto) VALUES (?,?,?,?,?,?,?,?,?)"
+                    val statement = database.compileStatement(sqlString)
+                    statement.bindString(1,vehicleModel)
+                    statement.bindString(2,licensePlate)
+                    statement.bindString(3,vehicleHealth)
+                    statement.bindString(4,vehiclePower)
+                    statement.bindString(5,gearType)
+                    statement.bindString(6,howManyPerson)
+                    statement.bindString(7,dailyPrice)
+                    statement.bindString(8,available)
+                    statement.bindBlob(9,vehicleByte)
+                    statement.execute()
+                    /*database.execSQL("CREATE TABLE IF NOT EXISTS araclar(id INTEGER PRIMARY KEY, aracmodeli VARCHAR, plaka VARCHAR, saglik VARCHAR, beygir VARCHAR, vitestipi VARCHAR, kackisilik VARCHAR, gunlukucret VARCHAR, durum VARCHAR, aracfoto BLOB)")
+
+                    val sqlString = "INSERT INTO araclar(aracmodeli, plaka, saglik, beygir, vitestipi, kackisilik, gunlukucret, durum, aracfoto) VALUES (?,?,?,?,?,?,?,?)"
                     val statement = database.compileStatement(sqlString)
                     statement.bindString(1,vehicleModel)
                     statement.bindString(2,licensePlate)
@@ -198,7 +223,7 @@ class VehicleAddFragment : Fragment() {
                     statement.bindString(6,howManyPerson)
                     statement.bindString(7,dailyPrice)
                     statement.bindBlob(8,vehicleByte)
-                    statement.execute()
+                    statement.execute()*/
 
                     //val database3 = it.openOrCreateDatabase("Ofisler", Context.MODE_PRIVATE,null)
                     //database3.execSQL("CREATE TABLE IF NOT EXISTS ofisler(id INTEGER PRIMARY KEY, ofis VARCHAR)")

@@ -5,9 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.fragment_vehicle_add.view.*
 import kotlinx.android.synthetic.main.vehicle_view_for_admin_recycler_row.view.*
 
-class VehicleViewForAdminAdapter(val vehicleIdList : ArrayList<Int>, val vehicleModelList : ArrayList<String>,val licensePlateList : ArrayList<String>, val vehicleHealthList : ArrayList<String>, val vehicleBitmapList : ArrayList<Bitmap>) : RecyclerView.Adapter<VehicleViewForAdminAdapter.VehicleViewForAdminVH>(){
+class VehicleViewForAdminAdapter(val vehicleIdList : ArrayList<Int>, val vehicleModelList : ArrayList<String>,val licensePlateList : ArrayList<String>, val vehicleHealthList : ArrayList<String>,  val vehicleAvailableList : ArrayList<String>, val vehicleBitmapList : ArrayList<Bitmap>) : RecyclerView.Adapter<VehicleViewForAdminAdapter.VehicleViewForAdminVH>(){
     class VehicleViewForAdminVH(itemView : View) : RecyclerView.ViewHolder(itemView) {
 
     }
@@ -21,9 +22,8 @@ class VehicleViewForAdminAdapter(val vehicleIdList : ArrayList<Int>, val vehicle
 
     //organizes what is going to be in the rows
     override fun onBindViewHolder(holder: VehicleViewForAdminVH, position: Int) {
-        val information = "Model: " + vehicleModelList[position] + "\nPlaka: " + licensePlateList[position] + "\nAraç Sağlığı: " + vehicleHealthList[position]
+        val information = "Durum: " + vehicleAvailableList[position] + "\nModel: " + vehicleModelList[position] + "\nPlaka: " + licensePlateList[position] + "\nAraç Sağlığı: " + vehicleHealthList[position]
         holder.itemView.vehicleInformationForAdmin.text = information
-
         holder.itemView.vehicleImageAdminView.setImageBitmap(vehicleBitmapList[position])
     }
 

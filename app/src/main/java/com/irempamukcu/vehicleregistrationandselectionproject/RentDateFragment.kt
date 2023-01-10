@@ -28,7 +28,7 @@ class RentDateFragment : Fragment() {
 
         //moves to PaymentFragment when rentButton is pressed
         rentButton.setOnClickListener {
-            val action8 = RentDateFragmentDirections.actionRentDateFragmentToPaymentFragment()
+            val action8 = RentDateFragmentDirections.actionRentDateFragmentToVerifyVehicleForCustomer()
             Navigation.findNavController(it).navigate(action8)
         }
     }
