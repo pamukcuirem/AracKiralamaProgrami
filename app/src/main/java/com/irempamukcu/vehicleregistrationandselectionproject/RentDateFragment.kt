@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.fragment_rent_date.*
 import kotlinx.android.synthetic.main.fragment_rent_date.view.*
 import kotlinx.android.synthetic.main.fragment_verify_vehicle_for_customer.*
+import java.text.SimpleDateFormat
 
 class RentDateFragment : Fragment() {
 
@@ -36,29 +37,41 @@ class RentDateFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
+
             arguments?.let{
                 var licensePlate = RentDateFragmentArgs.fromBundle(it).licensePlate
                 var price = RentDateFragmentArgs.fromBundle(it).price
 
 
-
-
-
                 //moves to PaymentFragment when rentButton is pressed
                 rentButton.setOnClickListener {
+                    val days = findDay(it)
+
                     val start = rentStartDate.text.toString()
                     val finish = editTextDate2.text.toString()
                     val office = pickOfficeEditText.text.toString()
 
-                    val action8 = RentDateFragmentDirections.actionRentDateFragmentToVerifyVehicleForCustomer(start,finish,licensePlate,price,office)
+                    val action8 = RentDateFragmentDirections.actionRentDateFragmentToVerifyVehicleForCustomer(start,finish,licensePlate,price,office,days)
                     Navigation.findNavController(it).navigate(action8)
                 }
 
             }
 
         }
+    fun findDay(view : View): Int{
+        val start = rentStartDate.text.toString()
+        val finish = editTextDate2.text.toString()
 
+        val mDateFormat = SimpleDateFormat("dd/MM/yyyy")
+        val mDate1 = mDateFormat.parse(start)
+        val mDate2 = mDateFormat.parse(finish)
 
+        val mDifference = kotlin.math.abs(mDate1.time - mDate2.time)
+        val mDifferenceDates = mDifference / (24*60*60*1000)
+        val mDayDifference = mDifferenceDates.toString().toInt()
+
+        return mDayDifference
+    }
 
 
 

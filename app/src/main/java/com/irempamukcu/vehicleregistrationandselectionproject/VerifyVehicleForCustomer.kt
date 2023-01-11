@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import kotlinx.android.synthetic.main.fragment_rent_date.*
 import kotlinx.android.synthetic.main.fragment_verify_vehicle_for_customer.*
+import java.text.SimpleDateFormat
 
 class VerifyVehicleForCustomer : Fragment() {
 
@@ -25,18 +27,22 @@ class VerifyVehicleForCustomer : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
         arguments?.let{
             var start = VerifyVehicleForCustomerArgs.fromBundle(it).startRentDate
             var finish = VerifyVehicleForCustomerArgs.fromBundle(it).finishRentDate
             var licensePlate = VerifyVehicleForCustomerArgs.fromBundle(it).licensePlateArgs
             var price = VerifyVehicleForCustomerArgs.fromBundle(it).priceArgs
             var office = VerifyVehicleForCustomerArgs.fromBundle(it).officeArgs
+            var days = VerifyVehicleForCustomerArgs.fromBundle(it).daysArgs
 
+            val pay = price.toInt()*days
 
 
             rentVehicleView.text = "Araç Plakası:\n" + licensePlate
             rentDateView.text = "Tarih:\n" + start + "-" + finish
-            payView.text = "Günlük Ücret:\n" + price + " ₺"
+            //payView.text = "Günlük Ücret:\n" + price + " ₺"
+            payView.text = "Toplam Ücret:\n" + pay + " ₺"
             officeView.text = "Arabanın Alınacağı Ofis:\n" + office
 
             context?.let{
@@ -48,10 +54,13 @@ class VerifyVehicleForCustomer : Fragment() {
 
         }
         verifyButton.setOnClickListener {
+
             val action25 = VerifyVehicleForCustomerDirections.actionVerifyVehicleForCustomerToPaymentFragment()
             Navigation.findNavController(it).navigate(action25)
         }
         super.onViewCreated(view, savedInstanceState)
     }
+
+
 
 }

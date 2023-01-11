@@ -111,6 +111,9 @@
         <argument
             android:name="officeArgs"
             app:argType="string" />
+        <argument
+            android:name="daysArgs"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/vehicleViewForAdmin2"
