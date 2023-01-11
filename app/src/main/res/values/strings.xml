@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">VehicleRegistrationAndSelectionProject</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="offices">
+        <item>Maltepe</item>
+        <item>Kadıköy</item>
+        <item>Fatih</item>
+        <item>Beşiktaş</item>
+    </string-array>
+
+</resources>

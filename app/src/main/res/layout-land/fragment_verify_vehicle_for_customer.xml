@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VerifyVehicleForCustomer">
+
+
+    <Button
+        android:id="@+id/verifyButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="78dp"
+        android:layout_marginEnd="91dp"
+        android:layout_marginBottom="26dp"
+        android:backgroundTint="#60006064"
+        android:text="Onayla"
+        android:textAlignment="center"
+        android:textColor="#C1000000"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/payView"
+        app:layout_constraintStart_toStartOf="@+id/officeView"
+        app:layout_constraintTop_toBottomOf="@+id/payView" />
+
+    <TextView
+        android:id="@+id/textViewRent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="23dp"
+        android:text="Kiralama Özeti"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/rentDateView"
+        app:layout_constraintEnd_toEndOf="@+id/rentDateView"
+        app:layout_constraintStart_toStartOf="@+id/rentVehicleView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/rentVehicleView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:layout_marginStart="53dp"
+        android:layout_marginEnd="52dp"
+        android:text="Kiralanan Araç"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toBottomOf="@+id/rentDateView"
+        app:layout_constraintEnd_toStartOf="@+id/rentDateView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rentDateView" />
+
+    <TextView
+        android:id="@+id/rentDateView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:layout_marginEnd="98dp"
+        android:layout_marginBottom="16dp"
+        android:text="Kiralanan Aralık"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toTopOf="@+id/payView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/rentVehicleView"
+        app:layout_constraintTop_toBottomOf="@+id/textViewRent" />
+
+    <TextView
+        android:id="@+id/officeView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:layout_marginStart="53dp"
+        android:layout_marginEnd="52dp"
+        android:text="Ofis"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toBottomOf="@+id/payView"
+        app:layout_constraintEnd_toStartOf="@+id/payView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/payView" />
+
+    <TextView
+        android:id="@+id/payView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:layout_marginEnd="98dp"
+        android:layout_marginBottom="23dp"
+        android:text="Fiyat"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toTopOf="@+id/verifyButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/officeView"
+        app:layout_constraintTop_toBottomOf="@+id/rentDateView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

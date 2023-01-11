@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VehicleViewForAdmin">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewForAdmin"
+        android:layout_width="500dp"
+        android:layout_height="match_parent"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.016"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/goAddVehicleButton"
+        android:layout_width="123dp"
+        android:layout_height="91dp"
+        android:layout_marginStart="542dp"
+        android:backgroundTint="#60006064"
+        android:onClick="saveVehicle"
+        android:text="Ekle"
+        android:textAlignment="center"
+        android:textColor="#C1000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/goDeleteVehicleButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/recyclerViewForAdmin"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/goDeleteVehicleButton"
+        android:layout_width="123dp"
+        android:layout_height="91dp"
+        android:layout_marginStart="541dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginBottom="28dp"
+        android:backgroundTint="#60006064"
+        android:onClick="saveVehicle"
+        android:text="Sil Güncelle"
+        android:textAlignment="center"
+        android:textColor="#C1000000"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/goShowCustomerButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/recyclerViewForAdmin"
+        app:layout_constraintTop_toTopOf="@+id/recyclerViewForAdmin" />
+
+    <Button
+        android:id="@+id/goShowCustomerButton"
+        android:layout_width="123dp"
+        android:layout_height="91dp"
+        android:layout_marginStart="542dp"
+        android:layout_marginTop="223dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#60006064"
+        android:onClick="saveVehicle"
+        android:text="Müşteri Listesi"
+        android:textAlignment="center"
+        android:textColor="#C1000000"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/recyclerViewForAdmin"
+        app:layout_constraintTop_toTopOf="@+id/recyclerViewForAdmin" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

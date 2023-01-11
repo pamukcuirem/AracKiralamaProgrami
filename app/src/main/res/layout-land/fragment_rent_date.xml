@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RentDateFragment">
+
+
+    <CalendarView
+        android:id="@+id/calendarView2"
+        android:layout_width="266dp"
+        android:layout_height="289dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.038"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/rentStartDate"
+        android:layout_width="134dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginBottom="23dp"
+        android:ems="10"
+        android:hint="İlk Gün: 01/06"
+        android:inputType="date"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toStartOf="@+id/editTextDate2"
+        app:layout_constraintHorizontal_bias="0.786"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rentDateTextView" />
+
+    <EditText
+        android:id="@+id/editTextDate2"
+        android:layout_width="134dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="219dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="23dp"
+        android:ems="10"
+        android:hint="Son Gün: 10/06"
+        android:inputType="date"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/rentDateTextView" />
+
+    <TextView
+        android:id="@+id/rentDateTextView"
+        android:layout_width="350dp"
+        android:layout_height="42dp"
+        android:text="Kira Tarih Aralığı"
+        android:textAlignment="center"
+        android:textColor="#006064"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.942"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.214" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="346dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="20dp"
+        android:text="Ofis Seçiniz"
+        android:textAlignment="center"
+        android:textColor="#006064"
+        android:textSize="26sp"
+        app:layout_constraintBottom_toTopOf="@+id/pickOfficeEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.931"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/rentButton"
+        android:layout_width="336dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#60006064"
+        android:text="Devam"
+        android:textColor="#C1000000"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.916"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/pickOfficeEditText"
+        android:layout_width="342dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:hint="Maltepe, Fatih, Beşiktaş, Kadıköy"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/rentButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.932"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

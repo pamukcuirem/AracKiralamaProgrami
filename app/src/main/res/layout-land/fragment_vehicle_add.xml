@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VehicleAddFragment">
+
+    <EditText
+        android:id="@+id/addVehicleModelEditText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="12dp"
+        android:ems="10"
+        android:hint="Araç Modeli"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/addVehicleHealthEditText"
+        app:layout_constraintEnd_toStartOf="@+id/addVehicleAvailableEditText"
+        app:layout_constraintStart_toEndOf="@+id/adminAddVehicleTextView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/addVehicleLicensePlateEditText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:hint="Plaka Bilgisi"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/addVehicleHowManyPersonEditText"
+        app:layout_constraintEnd_toStartOf="@+id/addVehicleHealthEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adminAddVehicleTextView" />
+
+    <EditText
+        android:id="@+id/addVehicleHealthEditText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="13dp"
+        android:ems="10"
+        android:hint="Araç Sağlığı"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/addVehiclePowerEditText"
+        app:layout_constraintEnd_toStartOf="@+id/addVehicleDailyPriceEditText"
+        app:layout_constraintStart_toEndOf="@+id/addVehicleLicensePlateEditText"
+        app:layout_constraintTop_toBottomOf="@+id/addVehicleModelEditText" />
+
+    <EditText
+        android:id="@+id/addVehiclePowerEditText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:hint="Beygir Bilgisi"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/vehicleSaveButton"
+        app:layout_constraintEnd_toStartOf="@+id/addVehicleImage"
+        app:layout_constraintStart_toEndOf="@+id/addVehicleHowManyPersonEditText"
+        app:layout_constraintTop_toBottomOf="@+id/addVehicleHealthEditText" />
+
+    <EditText
+        android:id="@+id/addVehicleGearTypeEditText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="52dp"
+        android:ems="10"
+        android:hint="Vites Tipi"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/vehicleSaveButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addVehicleHowManyPersonEditText" />
+
+    <EditText
+        android:id="@+id/addVehicleHowManyPersonEditText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="19dp"
+        android:ems="10"
+        android:hint="Kaç Kişilik"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/addVehicleGearTypeEditText"
+        app:layout_constraintEnd_toStartOf="@+id/addVehiclePowerEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addVehicleLicensePlateEditText" />
+
+    <EditText
+        android:id="@+id/addVehicleDailyPriceEditText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="19dp"
+        android:ems="10"
+        android:hint="Günlük Ücret"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/addVehicleImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/addVehicleHealthEditText"
+        app:layout_constraintTop_toBottomOf="@+id/addVehicleAvailableEditText" />
+
+    <EditText
+        android:id="@+id/addVehicleAvailableEditText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="14dp"
+        android:ems="10"
+        android:hint="Müsaitlik Durumu"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/addVehicleDailyPriceEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/addVehicleModelEditText"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/addVehicleImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginBottom="40dp"
+        android:onClick="saveVehiclePicture"
+        android:src="@drawable/carpic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/addVehiclePowerEditText"
+        app:layout_constraintTop_toBottomOf="@+id/addVehicleDailyPriceEditText" />
+
+    <Button
+        android:id="@+id/vehicleSaveButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="256dp"
+        android:layout_marginBottom="36dp"
+        android:backgroundTint="#60006064"
+        android:onClick="saveVehicle"
+        android:text="Kaydet"
+        android:textAlignment="center"
+        android:textColor="#C1000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/addVehicleGearTypeEditText"
+        app:layout_constraintTop_toBottomOf="@+id/addVehiclePowerEditText" />
+
+    <TextView
+        android:id="@+id/adminAddVehicleTextView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="17dp"
+        android:text="Araç Ekle"
+        android:textAlignment="center"
+        android:textColor="#006064"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/addVehicleLicensePlateEditText"
+        app:layout_constraintEnd_toStartOf="@+id/addVehicleModelEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
